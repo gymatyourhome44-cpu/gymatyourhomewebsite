@@ -27,7 +27,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
 .nav-outer{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:14px 20px;}
 nav{width:100%;max-width:1200px;background:rgba(10,10,10,0.55);backdrop-filter:blur(28px);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background .3s;}
 nav.scrolled{background:rgba(10,10,10,0.92);}
-.logo{font-family:'Hanken Grotesk',sans-serif;font-size:clamp(14px,2vw,18px);font-weight:800;color:#fff;letter-spacing:-0.02em;white-space:nowrap;}
+.logo{font-family:'Hanken Grotesk',sans-serif;font-size:clamp(13px,2vw,18px);font-weight:800;color:#fff;letter-spacing:-0.02em;white-space:nowrap;}
 .logo span{color:var(--lime);}
 .nav-links{display:none;gap:20px;align-items:center;}
 @media(min-width:860px){.nav-links{display:flex;}}
@@ -53,18 +53,16 @@ nav.scrolled{background:rgba(10,10,10,0.92);}
 .hero-canvas{position:absolute;inset:0;z-index:1;}
 .hero-content{position:relative;z-index:2;text-align:center;max-width:780px;width:100%;}
 .hero-badge{display:inline-block;padding:6px 16px;border-radius:100px;border:1px solid rgba(195,244,0,0.35);color:var(--lime);font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;}
-.hero h1{font-family:'Hanken Grotesk',sans-serif;font-size:clamp(40px,7vw,88px);line-height:0.96;font-weight:800;letter-spacing:-0.04em;margin-bottom:18px;}
-.hero p{font-size:clamp(14px,1.8vw,17px);color:rgba(198,198,200,0.78);max-width:540px;margin:0 auto 32px;line-height:1.8;}
+.hero h1{font-family:'Hanken Grotesk',sans-serif;font-size:clamp(38px,7vw,88px);line-height:0.96;font-weight:800;letter-spacing:-0.04em;margin-bottom:18px;}
+.hero p{font-size:clamp(13px,1.8vw,17px);color:rgba(198,198,200,0.78);max-width:540px;margin:0 auto 32px;line-height:1.8;}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;}
 .btn-lime{background:var(--lime);color:#283500;border:none;padding:14px 30px;border-radius:100px;font-weight:700;font-size:13px;cursor:pointer;transition:all .3s;box-shadow:0 0 24px rgba(195,244,0,0.3);}
 .btn-lime:hover{transform:scale(1.05);box-shadow:0 0 40px rgba(195,244,0,0.5);}
 .btn-ghost{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.18);color:#fff;padding:14px 30px;border-radius:100px;font-weight:700;font-size:13px;cursor:pointer;backdrop-filter:blur(8px);transition:all .3s;}
 .btn-ghost:hover{background:rgba(255,255,255,0.14);}
-.hero-stats{display:flex;gap:clamp(24px,4vw,52px);justify-content:center;flex-wrap:wrap;}
-.stat-val{font-family:'Hanken Grotesk',sans-serif;font-size:clamp(26px,4vw,36px);font-weight:800;color:var(--lime);line-height:1;}
+.hero-stats{display:flex;gap:clamp(20px,4vw,52px);justify-content:center;flex-wrap:wrap;}
+.stat-val{font-family:'Hanken Grotesk',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--lime);line-height:1;}
 .stat-lbl{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin-top:4px;}
-.hero-float{position:absolute;bottom:40px;right:clamp(16px,4vw,56px);display:none;}
-@media(min-width:1024px){.hero-float{display:block;}}
 
 /* TICKER */
 .ticker-wrap{overflow:hidden;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);background:rgba(12,12,12,0.9);padding:14px 0;}
@@ -209,90 +207,62 @@ nav.scrolled{background:rgba(10,10,10,0.92);}
 .cta-bg::after{content:'';position:absolute;inset:0;background:rgba(10,10,10,0.75);}
 .cta-glow{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 30% 50%,rgba(195,244,0,0.08) 0%,transparent 65%);}
 
-/* ===== FLOATING WA FAB ===== */
+/* ============================================
+   SIMPLE FLOATING WHATSAPP BUTTON
+   ============================================ */
 .wa-fab-wrap{
   position:fixed;
-  bottom:32px;
-  right:28px;
+  bottom:28px;
+  right:24px;
   z-index:2147483647;
   display:flex;
   flex-direction:column;
   align-items:flex-end;
   gap:10px;
-  opacity:0;
-  transform:translateY(20px);
-  pointer-events:none;
-  transition:opacity .4s ease,transform .4s ease;
 }
-.wa-fab-wrap.visible{opacity:1;transform:translateY(0);pointer-events:all;}
-.wa-tooltip-row{position:relative;display:flex;align-items:center;gap:8px;}
-.wa-tooltip{
-  background:#fff;
-  color:#111;
-  font-size:12px;
-  font-weight:600;
-  padding:8px 14px;
-  border-radius:100px;
-  white-space:nowrap;
-  box-shadow:0 4px 20px rgba(0,0,0,0.25);
-  opacity:0;
-  transform:translateX(8px);
-  transition:opacity .3s ease,transform .3s ease;
-  pointer-events:none;
-  position:relative;
-}
-.wa-tooltip::after{
-  content:'';
-  position:absolute;
-  right:-5px;
-  top:50%;
-  transform:translateY(-50%);
-  border:5px solid transparent;
-  border-right:none;
-  border-left-color:#fff;
-}
-.wa-fab-wrap:hover .wa-tooltip{opacity:1;transform:translateX(0);}
 .wa-fab{
-  position:relative;
-  width:62px;
-  height:62px;
+  width:62px;height:62px;
   background:#25D366;
   border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display:flex;align-items:center;justify-content:center;
   text-decoration:none;
-  box-shadow:0 6px 24px rgba(37,211,102,0.45);
+  box-shadow:0 6px 24px rgba(37,211,102,0.5);
   transition:transform .25s ease,box-shadow .25s ease;
+  position:relative;
   flex-shrink:0;
 }
-.wa-fab:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,0.65);}
+.wa-fab:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,0.7);}
+.wa-fab:active{transform:scale(0.95);}
 .wa-fab .pulse-ring{
-  position:absolute;
-  inset:0;
-  border-radius:50%;
+  position:absolute;inset:0;border-radius:50%;
   background:rgba(37,211,102,0.35);
   animation:waPulse 2.4s ease-out infinite;
 }
 .wa-fab .pulse-ring:nth-child(2){animation-delay:1.2s;}
-@keyframes waPulse{0%{transform:scale(1);opacity:.7;}100%{transform:scale(2.2);opacity:0;}}
+@keyframes waPulse{0%{transform:scale(1);opacity:.7;}100%{transform:scale(2.3);opacity:0;}}
 
-/* SCROLL TO TOP */
+/* scroll-to-top */
 .scroll-top-btn{
-  width:46px;
-  height:46px;
+  width:46px;height:46px;
   background:rgba(20,20,20,0.85);
   border:1px solid rgba(255,255,255,0.12);
   border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display:flex;align-items:center;justify-content:center;
   cursor:pointer;
-  transition:background .2s,transform .2s,border-color .2s;
+  transition:background .2s,transform .2s,border-color .2s,opacity .3s;
   backdrop-filter:blur(12px);
   color:#fff;
+  opacity:0;
+  pointer-events:none;
 }
+.scroll-top-btn.show{opacity:1;pointer-events:all;}
 .scroll-top-btn:hover{background:var(--lime);color:#283500;border-color:transparent;transform:translateY(-3px);}
+
+@media(max-width:480px){
+  .wa-fab-wrap{bottom:16px;right:14px;}
+  .wa-fab{width:56px;height:56px;}
+  .scroll-top-btn{width:42px;height:42px;}
+}
 
 /* FOOTER */
 footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);border-radius:36px 36px 0 0;padding:clamp(36px,5vw,64px);position:relative;z-index:1;}
@@ -302,24 +272,8 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:24px;margin-top:44px;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;}
 @media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;}}
 
-/* COOKIE BANNER */
-.cookie-banner{
-  position:fixed;
-  bottom:24px;
-  left:24px;
-  max-width:360px;
-  background:rgba(18,18,18,0.97);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:20px;
-  padding:20px 22px;
-  z-index:99998;
-  backdrop-filter:blur(20px);
-  box-shadow:0 12px 40px rgba(0,0,0,0.5);
-  opacity:0;
-  transform:translateY(20px);
-  transition:opacity .4s,transform .4s;
-  pointer-events:none;
-}
+/* COOKIE */
+.cookie-banner{position:fixed;bottom:24px;left:24px;max-width:360px;background:rgba(18,18,18,0.97);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:20px 22px;z-index:99998;backdrop-filter:blur(20px);box-shadow:0 12px 40px rgba(0,0,0,0.5);opacity:0;transform:translateY(20px);transition:opacity .4s,transform .4s;pointer-events:none;}
 .cookie-banner.show{opacity:1;transform:translateY(0);pointer-events:all;}
 .cookie-banner p{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:14px;}
 .cookie-btns{display:flex;gap:8px;}
@@ -327,6 +281,7 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
 .cookie-accept:hover{box-shadow:0 0 16px rgba(195,244,0,0.4);}
 .cookie-decline{background:transparent;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.4);padding:9px 16px;border-radius:100px;font-size:11px;cursor:pointer;transition:all .2s;}
 .cookie-decline:hover{border-color:rgba(255,255,255,0.3);color:#fff;}
+@media(max-width:480px){.cookie-banner{left:12px;right:12px;max-width:none;bottom:12px;}}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
@@ -334,13 +289,10 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
 
 @media(max-width:480px){
   nav{padding:10px 16px;}
-  .hero h1{font-size:36px;}
-  .hero p{font-size:14px;}
+  .hero h1{font-size:34px;}
+  .hero p{font-size:13px;}
   .btn-lime,.btn-ghost{padding:12px 22px;font-size:12px;}
   .phone-wrap{width:220px;height:460px;}
-  .wa-fab-wrap{bottom:20px;right:16px;}
-  .wa-fab{width:54px;height:54px;}
-  .cookie-banner{left:12px;right:12px;max-width:none;bottom:12px;}
 }
 </style>
 </head>
@@ -402,17 +354,11 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
       <div><div class="stat-val">5.0★</div><div class="stat-lbl">Google Rating</div></div>
     </div>
   </div>
-  <div class="hero-float">
-    <div class="glass" style="border-left:3px solid var(--lime);border-radius:20px;display:flex;align-items:center;gap:14px;padding:18px 22px;">
-      <div style="width:44px;height:44px;background:var(--lime-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="color:var(--lime);font-variation-settings:'FILL' 1;">trending_up</span></div>
-      <div><div style="font-family:'Hanken Grotesk',sans-serif;font-size:26px;font-weight:800;color:#fff;">500+</div><div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);">Transformations</div></div>
-    </div>
-  </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker-wrap">
-  <div class="ticker-track" id="ticker">
+  <div class="ticker-track">
     <div class="ticker-item"><span>★</span> Live 1-on-1 Coaching</div>
     <div class="ticker-item"><span>★</span> Zero Equipment Needed</div>
     <div class="ticker-item"><span>★</span> 50+ Certified Trainers</div>
@@ -433,7 +379,6 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
     <div class="ticker-item"><span>★</span> 95% Client Retention</div>
   </div>
 </div>
-
 <div class="glow-div"></div>
 
 <!-- PROGRAMS -->
@@ -455,7 +400,6 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
     </div>
   </div>
 </section>
-
 <div class="glow-div"></div>
 
 <!-- ABOUT -->
@@ -465,10 +409,7 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
       <div class="about-img-wrap reveal">
         <div class="lime-blob"></div>
         <img src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=800&q=80&auto=format&fit=crop" alt="Home Workout"/>
-        <div class="retention-badge glass neon">
-          <div class="val">95%</div>
-          <div class="lbl">Client Retention</div>
-        </div>
+        <div class="retention-badge glass neon"><div class="val">95%</div><div class="lbl">Client Retention</div></div>
       </div>
       <div class="reveal">
         <div class="sec-label">Who We Are</div>
@@ -485,7 +426,6 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
     </div>
   </div>
 </section>
-
 <div class="glow-div"></div>
 
 <!-- HOW IT WORKS -->
@@ -508,7 +448,6 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
     </div>
   </div>
 </section>
-
 <div class="glow-div"></div>
 
 <!-- TRANSFORMATIONS -->
@@ -539,10 +478,9 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
     </div>
   </div>
 </section>
-
 <div class="glow-div"></div>
 
-<!-- APP / COACHING -->
+<!-- APP -->
 <section class="section" style="background:rgba(14,14,14,0.95)">
   <div class="sec-inner">
     <div class="app-grid">
@@ -587,7 +525,6 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
     </div>
   </div>
 </section>
-
 <div class="glow-div"></div>
 
 <!-- PRICING -->
@@ -642,7 +579,6 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
     </div>
   </div>
 </section>
-
 <div class="glow-div"></div>
 
 <!-- REVIEWS -->
@@ -680,12 +616,8 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
         <div class="g-badge-row"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Verified Google Review</div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:32px;" class="reveal">
-      <a href="https://g.page/r/gymatyourhome/review" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:var(--text3);text-decoration:none;padding:11px 24px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.05em;">See All Reviews on Google →</a>
-    </div>
   </div>
 </section>
-
 <div class="glow-div"></div>
 
 <!-- FAQ -->
@@ -701,19 +633,16 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
       <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Are sessions live or pre-recorded? <span class="arr">▾</span></button><div class="faq-a">All sessions are 100% live and real-time. Your trainer guides you personally — not through a pre-recorded video.</div></div>
       <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">What languages are available? <span class="arr">▾</span></button><div class="faq-a">We offer sessions in English, Malayalam, Hindi and more. Just let us know your preference when you enquire.</div></div>
       <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Can I try before I pay? <span class="arr">▾</span></button><div class="faq-a">Absolutely! We offer a free trial session so you can experience the quality of our coaching before committing.</div></div>
-      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Do you offer group or corporate sessions? <span class="arr">▾</span></button><div class="faq-a">Yes! We provide group workout sessions and dedicated corporate wellness programs for teams of any size. Contact us for a custom quote.</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Do you offer group or corporate sessions? <span class="arr">▾</span></button><div class="faq-a">Yes! We provide group workout sessions and dedicated corporate wellness programs for teams of any size.</div></div>
       <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How do I book? <span class="arr">▾</span></button><div class="faq-a">WhatsApp us at 062820 67963, share your goal and preferred time — we'll get you started, often the same day!</div></div>
     </div>
   </div>
 </section>
-
 <div class="glow-div"></div>
 
 <!-- CTA -->
 <section class="cta-section">
-  <div class="cta-bg">
-    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&q=80&auto=format&fit=crop" alt="Fitness"/>
-  </div>
+  <div class="cta-bg"><img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&q=80&auto=format&fit=crop" alt="Fitness"/></div>
   <div class="cta-glow"></div>
   <div class="sec-inner" style="text-align:center;position:relative;z-index:2;">
     <h2 class="reveal" style="font-family:'Hanken Grotesk',sans-serif;font-size:clamp(36px,7vw,84px);font-weight:800;letter-spacing:-0.04em;color:#fff;margin-bottom:16px;line-height:0.96;">Your Transformation<br/>Starts Today.</h2>
@@ -724,7 +653,6 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
     </div>
   </div>
 </section>
-
 <div class="glow-div"></div>
 
 <!-- CONTACT -->
@@ -762,7 +690,7 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
     <div class="footer-top">
       <div>
         <div style="font-family:'Hanken Grotesk',sans-serif;font-size:22px;font-weight:800;color:var(--lime);margin-bottom:14px;">GYM AT YOUR HOME</div>
-        <p style="color:var(--text3);font-size:13px;line-height:1.75;max-width:220px;">Redefining performance through live coaching delivered to your door. The future of fitness is personal.</p>
+        <p style="color:var(--text3);font-size:13px;line-height:1.75;max-width:220px;">Redefining performance through live coaching delivered to your door.</p>
       </div>
       <div>
         <h5 style="color:#fff;font-weight:700;margin-bottom:16px;font-size:13px;">Navigation</h5>
@@ -800,30 +728,27 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
   </div>
 </footer>
 
-<!-- ===== FLOATING WA FAB ===== -->
+<!-- FLOATING WHATSAPP BUTTON -->
 <div class="wa-fab-wrap" id="wa-fab-wrap">
-  <button class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <button class="scroll-top-btn" id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top" aria-label="Scroll to top">
     <span class="material-symbols-outlined" style="font-size:20px;">keyboard_arrow_up</span>
   </button>
-  <div class="wa-tooltip-row">
-    <div class="wa-tooltip">Chat with us on WhatsApp</div>
-    <a class="wa-fab"
-       href="https://wa.me/916282067963?text=Hi!%20I%20want%20to%20know%20more%20about%20GYM%20AT%20YOUR%20HOME."
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Chat on WhatsApp">
-      <span class="pulse-ring"></span>
-      <span class="pulse-ring"></span>
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="white" style="position:relative;z-index:1;">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-    </a>
-  </div>
+  <a class="wa-fab"
+     href="https://wa.me/916282067963?text=Hi!%20I%20want%20to%20know%20more%20about%20GYM%20AT%20YOUR%20HOME."
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <span class="pulse-ring"></span>
+    <span class="pulse-ring"></span>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white" style="position:relative;z-index:1;">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
 </div>
 
-<!-- COOKIE BANNER -->
+<!-- COOKIE -->
 <div class="cookie-banner" id="cookie-banner">
-  <p>We use cookies to enhance your experience on our site. By continuing, you agree to our <a href="#" style="color:var(--lime);">Privacy Policy</a>.</p>
+  <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="#" style="color:var(--lime);">Privacy Policy</a>.</p>
   <div class="cookie-btns">
     <button class="cookie-accept" onclick="acceptCookie()">Accept</button>
     <button class="cookie-decline" onclick="declineCookie()">Decline</button>
@@ -831,11 +756,17 @@ footer{background:rgba(7,7,7,0.99);border-top:1px solid rgba(255,255,255,0.05);b
 </div>
 
 <script>
-const WA='916282067963';
-function openWA(m){window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(m),'_blank','noopener,noreferrer');}
-function closeMob(){document.getElementById('mob-menu').classList.remove('open');}
-function toggleFaq(btn){const i=btn.parentElement,open=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!open)i.classList.add('open');}
+const WA = '916282067963';
+function openWA(m){
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(m),'_blank','noopener,noreferrer');
+}
 
+function closeMob(){document.getElementById('mob-menu').classList.remove('open');}
+function toggleFaq(btn){
+  const i=btn.parentElement,open=i.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));
+  if(!open) i.classList.add('open');
+}
 function submitEnquiry(){
   const n=document.getElementById('enq-name').value.trim();
   const g=document.getElementById('enq-goal').value;
@@ -844,42 +775,34 @@ function submitEnquiry(){
   if(!n){alert('Please enter your name.');return;}
   if(!g){alert('Please select your fitness goal.');return;}
   let m=`Hi! My name is ${n}.\n\nFitness Goal: ${g}\nPreferred Time: ${t||'Flexible'}`;
-  if(x)m+=`\n\nNotes: ${x}`;
+  if(x) m+=`\n\nNotes: ${x}`;
   m+='\n\nI found you on your website and would love to get started!';
   openWA(m);
 }
 
-/* SCROLL BEHAVIOURS */
-/* Show FAB immediately always — fixed works in real browser; in iframe show right away */
-document.getElementById('wa-fab-wrap').classList.add('visible');
-
+/* SCROLL */
 window.addEventListener('scroll',()=>{
-  const y=window.scrollY;
-  document.getElementById('main-nav').classList.toggle('scrolled',y>60);
-  document.getElementById('wa-fab-wrap').classList.add('visible');
+  const y = window.scrollY;
+  document.getElementById('main-nav').classList.toggle('scrolled', y > 60);
+  const stb = document.getElementById('scroll-top-btn');
+  stb.classList.toggle('show', y > 300);
 });
 
-/* REVEAL ON SCROLL */
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');}),{threshold:0.07});
+/* REVEAL */
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');}),{threshold:0.07});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* COOKIE BANNER */
+/* COOKIE */
 function showCookie(){
   if(!localStorage.getItem('cookie_consent')){
-    setTimeout(()=>document.getElementById('cookie-banner').classList.add('show'),2000);
+    setTimeout(()=>document.getElementById('cookie-banner').classList.add('show'),2500);
   }
 }
-function acceptCookie(){
-  localStorage.setItem('cookie_consent','accepted');
-  document.getElementById('cookie-banner').classList.remove('show');
-}
-function declineCookie(){
-  localStorage.setItem('cookie_consent','declined');
-  document.getElementById('cookie-banner').classList.remove('show');
-}
+function acceptCookie(){localStorage.setItem('cookie_consent','accepted');document.getElementById('cookie-banner').classList.remove('show');}
+function declineCookie(){localStorage.setItem('cookie_consent','declined');document.getElementById('cookie-banner').classList.remove('show');}
 showCookie();
 
-/* HERO CANVAS PARTICLES */
+/* HERO CANVAS */
 (function(){
   const cv=document.getElementById('hero-canvas'),ctx=cv.getContext('2d');
   let W,H,stars=[];
@@ -887,9 +810,8 @@ showCookie();
   resize();window.addEventListener('resize',()=>{resize();stars=[];init();});
   function init(){for(let i=0;i<120;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.2,a:Math.random()*.4+.08,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,lime:Math.random()<.2});}
   init();
-  let t=0;
   function draw(){
-    ctx.clearRect(0,0,W,H);t++;
+    ctx.clearRect(0,0,W,H);
     for(let s of stars){
       s.x+=s.vx;s.y+=s.vy;
       if(s.x<0||s.x>W)s.vx*=-1;if(s.y<0||s.y>H)s.vy*=-1;
